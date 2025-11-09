@@ -1,3 +1,5 @@
+interface TodoItem {}
+
 export default function Todos() {
   return (
     <div>

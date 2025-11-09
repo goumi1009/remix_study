@@ -11,7 +11,9 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <div>
+      <Link to="todos">투두로 가기</Link>
       <Link to="signin">Signin</Link>
+      <Link to="signin">SignUp</Link>
     </div>
   );
 }
