@@ -13,7 +13,7 @@ export default function Home() {
     <div>
       <Link to="todos">투두로 가기</Link>
       <Link to="signin">Signin</Link>
-      <Link to="signin">SignUp</Link>
+      <Link to="signup">SignUp</Link>
     </div>
   );
 }
