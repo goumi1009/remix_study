@@ -12,7 +12,6 @@ export async function action({ request }: Route.ActionArgs) {
       email,
       password,
     });
-    console.log(email, password);
     return { success: true, data: { email, password } };
   } catch (e) {
     console.error('Error while signup');
