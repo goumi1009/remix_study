@@ -1,4 +1,5 @@
 import { db } from 'app/lib/firebase';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { addDoc, collection } from 'firebase/firestore';
 import { Form } from 'react-router';
 import type { Route } from './+types/signup';
@@ -6,16 +7,28 @@ import type { Route } from './+types/signup';
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
   const email = formData.get('email')?.toString() || '';
-  const password = formData.get('password');
+  const password = formData.get('password')?.toString() || '';
+  if (!email || !password) {
+    throw new Error('Email and password are required');
+  }
+
   try {
+    const auth = getAuth();
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
     const ref = await addDoc(collection(db, 'users'), {
+      uid: user.uid,
       email,
       password,
     });
-    return { success: true, data: { email, password } };
+    return { success: true, data: { email, password, uid: user.uid } };
   } catch (e) {
-    console.error('Error while signup');
-    return { success: false, data: { email: 'a', password: 'b' } };
+    console.error('Error while signup', e);
+    throw new Error('Error while signup');
   }
 }
 
