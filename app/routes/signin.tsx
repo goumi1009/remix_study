@@ -1,12 +1,17 @@
 import { Form } from 'react-router';
+import { signInFirebase } from '~/lib/firebase';
 import type { Route } from './+types/signin';
 
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
-  const title = formData.get('email');
+  const email = formData.get('email');
   const password = formData.get('password');
-  const res = null; //api 호출들어가고
-  console.log(title, password);
+  if (!email || !password) {
+    return 'Missing email or password';
+  }
+  console.log(email, password);
+  const res = await signInFirebase(email?.toString(), password?.toString());
+  console.log('signin res', res);
   return res;
 }
 

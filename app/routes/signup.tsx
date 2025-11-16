@@ -1,6 +1,4 @@
-import { db } from 'app/lib/firebase';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
-import { addDoc, collection } from 'firebase/firestore';
 import { Form } from 'react-router';
 import type { Route } from './+types/signup';
 
@@ -20,11 +18,6 @@ export async function action({ request }: Route.ActionArgs) {
       password
     );
     const user = userCredential.user;
-    const ref = await addDoc(collection(db, 'users'), {
-      uid: user.uid,
-      email,
-      password,
-    });
     return { success: true, data: { email, password, uid: user.uid } };
   } catch (e) {
     console.error('Error while signup', e);
