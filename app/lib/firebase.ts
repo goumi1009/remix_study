@@ -27,11 +27,9 @@ export const signInFirebase = async (email: string, password: string) => {
       email,
       password
     );
-    const user = userCredential.user;
+    const user = await userCredential.user.getIdToken();
     return user;
   } catch (e) {
-    const errorCode = e.code;
-    const errorMessage = e.message;
-    console.error('Firebase signIn error', errorCode, errorMessage);
+    console.error('Firebase signIn error', e);
   }
 };

@@ -1,5 +1,7 @@
-import { Form } from 'react-router';
+import { useEffect } from 'react';
+import { Form, useActionData } from 'react-router';
 import { signInFirebase } from '~/lib/firebase';
+import { useAuth } from '~/stores/auth';
 import type { Route } from './+types/signin';
 
 export async function action({ request }: Route.ActionArgs) {
@@ -16,6 +18,12 @@ export async function action({ request }: Route.ActionArgs) {
 }
 
 export default function SignIn() {
+  const actionData = useActionData();
+  const setTokens = useAuth((state) => state.setTokens);
+
+  useEffect(() => {}, [actionData, setTokens]);
+
+  console.log(actionData);
   return (
     <div>
       <Form method="post">
