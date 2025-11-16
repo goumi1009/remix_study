@@ -10,5 +10,89 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always",
     "source.organizeImports": "always"
-  }
+  },
+
+  // Custom Gitmoji
+  "gitmoji.addCustomEmoji": [
+    {
+      "emoji": ":sparkles: Feat : ",
+      "code": ":sparkles:",
+      "description": "새로운 기능 추가, 기존의 기능을 요구 사항에 맞추어 수정"
+    },
+    {
+      "emoji": ":bug: Fix : ",
+      "code": ":bug:",
+      "description": "기능에 대한 버그 수정"
+    },
+    {
+      "emoji": ":construction_worker: Build : ",
+      "code": ":construction_worker:",
+      "description": "빌드 관련 수정"
+    },
+    {
+      "emoji": "📦️ Chore : ",
+      "code": ":package:",
+      "description": "패키지 매니저 수정, 그 외 기타 수정 ex) .gitignore"
+    },
+    {
+      "emoji": ":pencil: Docs : ",
+      "code": ":pencil:",
+      "description": " 문서(주석) 수정"
+    },
+    {
+      "emoji": ":art: Style : ",
+      "code": ":art:",
+      "description": "코드 스타일, 포맷팅에 대한 수정"
+    },
+    {
+      "emoji": ":recycle: Refactor : ",
+      "code": ":recycle:",
+      "description": "기능의 변화가 아닌 코드 리팩터링 ex) 변수 이름 변경"
+    },
+    {
+      "emoji": ":bookmark: Release : ",
+      "code": ":bookmark:",
+      "description": "버전 릴리즈"
+    },
+    {
+      "emoji": "🧪 Test : ",
+      "code": "🧪",
+      "description": "테스트 코드관련"
+    },
+    {
+      "emoji": ":lipstick: Design: ",
+      "code": ":lipstick:",
+      "description": "CSS 수정"
+    },
+    {
+      "emoji": "🚑️ Hotfix: ",
+      "code": ":ambulance:",
+      "description": "급하게 치명적인 버그를 고치는 경우"
+    },
+    {
+      "emoji": ":hammer: Modify: ",
+      "code": ":hammer:",
+      "description": "정말 단순한 코드 수정(ex.오타, 문자열 변경 등)"
+    },
+    {
+      "emoji": ":truck: Rename: ",
+      "code": ":truck:",
+      "description": "파일 및 폴더 구조 변경"
+    },
+    {
+      "emoji": ":heavy_plus_sign: Add: ",
+      "code": ":heavy_plus_sign:",
+      "description": "Asset 파일 추가"
+    },
+    {
+      "emoji": ":heavy_minus_sign: Remove: ",
+      "code": ":heavy_minus_sign:",
+      "description": "파일 삭제"
+    },
+    {
+      "emoji": "🔧 Env: ",
+      "code": "🔧",
+      "description": "package 추가, ESLint, Prettier 룰 추가환경 설정 관련 수정사항"
+    }
+  ]
 }
